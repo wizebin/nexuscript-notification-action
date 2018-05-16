@@ -13,7 +13,7 @@ nexusdk.on('start', (properties) => {
   const { title, message, timeout } = properties;
   const result = boundNotify({
     title,
-    message: message ? message : undefined,
+    message: message ? message : ' ',
     timeout: timeout ? timeout : undefined,
   }, () => {
     process.exit(1);
