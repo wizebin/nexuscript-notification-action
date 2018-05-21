@@ -14,4 +14,3 @@ wrapAction((properties) => {
 
   return !!result;
 });
-

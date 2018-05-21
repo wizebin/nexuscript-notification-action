@@ -1,7 +1,7 @@
 {
   "name": "nexuscript-notification-action",
   "version": "1.0.0",
-  "description": "",
+  "description": "Send desktop notifications with Nexuscript",
   "main": "src/index.js",
   "scripts": {
     "dev": "webpack --mode development",
@@ -16,5 +16,19 @@
   "dependencies": {
     "nexusdk": "github:wizebin/nexusdk",
     "node-notifier": "^5.2.1"
+  },
+  "nexuscript": {
+    "type": "action",
+    "author": "nexuscript",
+    "price": "free",
+    "configuration": {
+      "title": "string",
+      "message": "string",
+      "timeout": "number"
+    },
+    "category": "message",
+    "build_command": "npm run build",
+    "dist_folder": "dist",
+    "dist_file": "dist/main.js"
   }
 }
