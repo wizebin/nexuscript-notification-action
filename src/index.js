@@ -6,11 +6,17 @@ const boundNotify = notifier.notify.bind(notifier);
 wrapAction((properties) => {
   const { title, message, timeout } = properties;
 
-  const result = boundNotify({
-    title,
-    message: message ? message : ' ',
-    timeout: timeout ? timeout : undefined,
+  return new Promise((resolve, reject) => {
+    const result = boundNotify({
+      title,
+      message: message ? message : ' ',
+      timeout: timeout ? timeout : undefined,
+      withFallback: true,
+    }, (err, data) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(data);
+    });
   });
-
-  return !!result;
 });
